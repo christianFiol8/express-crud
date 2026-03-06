@@ -1,0 +1,33 @@
+info:
+  name: CREATE user
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseUrl}}/api/users"
+  headers:
+    - name: auth
+      value: "{{Auth}}"
+    - name: token
+      value: "{{token}}"
+  params:
+    - name: ""
+      value: ""
+      type: query
+  body:
+    type: json
+    data: |-
+      {
+        "email": "carlos@example.com",
+        "password": "pass1234",
+        "name": "Carlos López",
+        "birthdate": "1998-07-15"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
